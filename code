@@ -1,0 +1,19 @@
+$ cd /etc/apache2/sites-available
+$ sudo touch dev.project.conf
+$ nano dev.project.conf 
+
+######copy below content and paste###### 
+<VirtualHost *:80>
+ServerName  dev.project.com
+DocumentRoot /var/www/html/project/trunk  #this is project root path
+<Directory /var/www/html/project/trunk>
+                Options FollowSymLinks
+                AllowOverride All
+        </Directory>
+</VirtualHost>
+######copy paste end######
+
+Now add a new entry in host file
+$ cd /etc
+$ nano hosts
+127.0.0.1       dev.project.com
